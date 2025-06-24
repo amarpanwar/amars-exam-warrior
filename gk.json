@@ -1,48 +1,42 @@
 [
   {
     "question": "भारत का पहला राष्ट्रपति कौन था?",
-    "options": {
-      "a": "डॉ. राजेन्द्र प्रसाद",
-      "b": "जवाहरलाल नेहरू",
-      "c": "सरदार पटेल",
-      "d": "डॉ. भीमराव अंबेडकर"
-    },
-    "answer": "a"
+    "options": [
+      "डॉ. राजेंद्र प्रसाद",
+      "डॉ. सर्वपल्ली राधाकृष्णन",
+      "जाकिर हुसैन",
+      "ए.पी.जे अब्दुल कलाम"
+    ],
+    "answer": "डॉ. राजेंद्र प्रसाद"
   },
   {
-    "question": "दिल्ली भारत की राजधानी कब बनी?",
-    "options": {
-      "a": "1911",
-      "b": "1947",
-      "c": "1950",
-      "d": "1857"
-    },
-    "answer": "a"
+    "question": "भारत की राजधानी क्या है?",
+    "options": [
+      "मुंबई",
+      "दिल्ली",
+      "चेन्नई",
+      "कोलकाता"
+    ],
+    "answer": "दिल्ली"
+  },
+  {
+    "question": "भारतीय संविधान कब लागू हुआ था?",
+    "options": [
+      "15 अगस्त 1947",
+      "26 जनवरी 1950",
+      "2 अक्टूबर 1949",
+      "26 नवंबर 1949"
+    ],
+    "answer": "26 जनवरी 1950"
+  },
+  {
+    "question": "पंचायती राज की शुरुआत किस राज्य से हुई थी?",
+    "options": [
+      "राजस्थान",
+      "उत्तर प्रदेश",
+      "पंजाब",
+      "बिहार"
+    ],
+    "answer": "राजस्थान"
   }
 ]
-<div id="questions-container"></div>
-
-<script>
-  fetch('gk.json')
-    .then(response => response.json())
-    .then(data => {
-      const container = document.getElementById('questions-container');
-      data.forEach((q, index) => {
-        const questionBlock = document.createElement('div');
-        questionBlock.classList.add('question-card');
-
-        questionBlock.innerHTML = `
-          <h3>Q${index + 1}. ${q.question}</h3>
-          <ul>
-            <li>A. ${q.options.a}</li>
-            <li>B. ${q.options.b}</li>
-            <li>C. ${q.options.c}</li>
-            <li>D. ${q.options.d}</li>
-          </ul>
-        `;
-
-        container.appendChild(questionBlock);
-      });
-    })
-    .catch(error => console.error('Error loading questions:', error));
-</script>
