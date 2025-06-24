@@ -1,0 +1,1 @@
+console.log("Welcome to Amar's OneShot SSC App!");
