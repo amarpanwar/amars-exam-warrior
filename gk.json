@@ -1,0 +1,48 @@
+[
+  {
+    "question": "भारत का पहला राष्ट्रपति कौन था?",
+    "options": {
+      "a": "डॉ. राजेन्द्र प्रसाद",
+      "b": "जवाहरलाल नेहरू",
+      "c": "सरदार पटेल",
+      "d": "डॉ. भीमराव अंबेडकर"
+    },
+    "answer": "a"
+  },
+  {
+    "question": "दिल्ली भारत की राजधानी कब बनी?",
+    "options": {
+      "a": "1911",
+      "b": "1947",
+      "c": "1950",
+      "d": "1857"
+    },
+    "answer": "a"
+  }
+]
+<div id="questions-container"></div>
+
+<script>
+  fetch('gk.json')
+    .then(response => response.json())
+    .then(data => {
+      const container = document.getElementById('questions-container');
+      data.forEach((q, index) => {
+        const questionBlock = document.createElement('div');
+        questionBlock.classList.add('question-card');
+
+        questionBlock.innerHTML = `
+          <h3>Q${index + 1}. ${q.question}</h3>
+          <ul>
+            <li>A. ${q.options.a}</li>
+            <li>B. ${q.options.b}</li>
+            <li>C. ${q.options.c}</li>
+            <li>D. ${q.options.d}</li>
+          </ul>
+        `;
+
+        container.appendChild(questionBlock);
+      });
+    })
+    .catch(error => console.error('Error loading questions:', error));
+</script>
