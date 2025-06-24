@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <title>AI GK Generator - Amar OneShot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      margin: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    button {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      font-size: 18px;
+      cursor: pointer;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+    }
+    .question-box {
+      background: white;
+      margin: 10px auto;
+      padding: 15px;
+      max-width: 700px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.1);
+    }
+    .question {
+      font-weight: bold;
+    }
+    .options {
+      margin-top: 8px;
+    }
+    .option {
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>एक क्लिक करें और AI से SSC GK के नए सवाल पाएं!</h1>
+  <button onclick="generateQuestions()">⭐ क्लिक करें नए GK सवाल</button>
+  <div id="output"></div>
+
+  <script>
+    function generateQuestions() {
+      const output = document.getElementById('output');
+      output.innerHTML = '<p>कृपया जा रहा है... GK सवाल AI से निकाले जा रहे हैं...</p>';
+
+      fetch('https://raw.githubusercontent.com/amarpanwar/amars-exam-warrior/main/ai-gk.json')
+        .then(res => res.json())
+        .then(data => {
+          let html = '';
+          data.forEach((q, i) => {
+            html += `<div class="question-box">
+              <div class="question">${i+1}. ${q.question}</div>
+              <div class="options">
+                ${q.options.map(opt => `<div class="option">- ${opt}</div>`).join('')}
+              </div>
+            </div>`;
+          });
+          output.innerHTML = html;
+        })
+        .catch(err => {
+          output.innerHTML = '<p style="color:red">Error loading questions. Check your internet or JSON file.</p>';
+        });
+    }
+  </script>
+</body>
+</html>
