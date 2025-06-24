@@ -20,3 +20,29 @@ fetch('gk.json')
     });
   })
   .catch(error => console.error('Error loading GK questions:', error));
+// scripts/gk.js
+fetch('gk.json')
+  .then(response => response.json())
+  .then(data => {
+    const container = document.getElementById('question-container');
+
+    data.forEach((q, index) => {
+      const questionBox = document.createElement('div');
+      questionBox.className = 'question-card';
+      questionBox.innerHTML = `
+        <h3>प्रश्न ${index + 1}: ${q.question}</h3>
+        <ul>
+          <li>A. ${q.options.A}</li>
+          <li>B. ${q.options.B}</li>
+          <li>C. ${q.options.C}</li>
+          <li>D. ${q.options.D}</li>
+        </ul>
+        <p><strong>सही उत्तर:</strong> ${q.answer}</p>
+        <hr>
+      `;
+      container.appendChild(questionBox);
+    });
+  })
+  .catch(error => {
+    console.error("Error loading questions:", error);
+  });
