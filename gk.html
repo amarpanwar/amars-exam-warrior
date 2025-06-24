@@ -51,3 +51,88 @@
   <!-- More GK questions आगे डालते रहेंगे -->
 </body>
 </html>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>सामान्य ज्ञान (GK) MCQ | SSC Delhi Police</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    .question {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .option {
+      margin: 10px 0;
+      padding: 8px;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #eee;
+    }
+    .correct {
+      background-color: #c8e6c9 !important;
+    }
+    .incorrect {
+      background-color: #ffcdd2 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>सामान्य ज्ञान (GK) MCQ</h1>
+
+  <div class="question">
+    <p><strong>Q1:</strong> भारत के पहले प्रधानमंत्री कौन थे?</p>
+    <div class="option" onclick="checkAnswer(this, true)">पंडित जवाहरलाल नेहरू</div>
+    <div class="option" onclick="checkAnswer(this, false)">महात्मा गांधी</div>
+    <div class="option" onclick="checkAnswer(this, false)">लाल बहादुर शास्त्री</div>
+    <div class="option" onclick="checkAnswer(this, false)">डॉ. भीमराव अंबेडकर</div>
+  </div>
+
+  <div class="question">
+    <p><strong>Q2:</strong> भारतीय संविधान कब लागू हुआ था?</p>
+    <div class="option" onclick="checkAnswer(this, false)">15 अगस्त 1947</div>
+    <div class="option" onclick="checkAnswer(this, true)">26 जनवरी 1950</div>
+    <div class="option" onclick="checkAnswer(this, false)">2 अक्टूबर 1952</div>
+    <div class="option" onclick="checkAnswer(this, false)">26 नवंबर 1949</div>
+  </div>
+
+  <div class="question">
+    <p><strong>Q3:</strong> ताजमहल किसने बनवाया था?</p>
+    <div class="option" onclick="checkAnswer(this, false)">अकबर</div>
+    <div class="option" onclick="checkAnswer(this, false)">हुमायूं</div>
+    <div class="option" onclick="checkAnswer(this, true)">शाहजहां</div>
+    <div class="option" onclick="checkAnswer(this, false)">औरंगजेब</div>
+  </div>
+
+  <script>
+    function checkAnswer(element, isCorrect) {
+      const parent = element.parentNode;
+      const options = parent.querySelectorAll('.option');
+      options.forEach(opt => {
+        opt.classList.remove('correct', 'incorrect');
+        opt.style.pointerEvents = 'none';
+      });
+      if (isCorrect) {
+        element.classList.add('correct');
+      } else {
+        element.classList.add('incorrect');
+      }
+    }
+  </script>
+
+</body>
+</html>
+
